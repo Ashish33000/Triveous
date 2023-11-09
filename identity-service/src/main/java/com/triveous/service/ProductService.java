@@ -1,6 +1,5 @@
 package com.triveous.service;
 
-import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +14,13 @@ public class ProductService {
     private  ProductRepo repo;
 
    
+	 public Product addProduct(Product p) {
+	        return repo.save(p);
+	    };
 
-//    public List<Product> getProductsByCategoryId(Long categoryId) {
-//        return repo.findByCategoryId(categoryId);
-//    }
 
     public Product getProductById(Long productId) {
         return repo.findById(productId)
                 .orElseThrow(() -> new NoSuchElementException("Product not found"));
-    }}
+    }
+    }

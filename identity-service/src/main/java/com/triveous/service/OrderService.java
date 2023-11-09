@@ -12,7 +12,9 @@ public class OrderService {
     private  OrderRepo repo;
 
 
-    
+	 public Orders addOrders(Orders order) {
+	        return repo.save(order);
+	    }
 
     public Orders getOrderById(Long orderId) {
         return repo.findById(orderId).get();
